@@ -259,6 +259,15 @@
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\sipXmediaLib.vcxproj">
       <Project>{0ec8287a-481e-45dc-8f95-bad940ae1038}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgl16\plgl16.vcxproj">
+      <Project>{a9c94d26-c90d-4860-8195-56929e893710}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgpcmapcmu\plgpcmapcmu.vcxproj">
+      <Project>{a9c94d26-c90d-4860-8195-56929e893757}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgtones\plgtones.vcxproj">
+      <Project>{50e09c77-6077-4149-8b80-996217363a2f}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXportLib\sipXportLib.vcxproj">
       <Project>{14631055-9d3f-47e5-b6a7-16bfc0cc8091}</Project>
     </ProjectReference>
