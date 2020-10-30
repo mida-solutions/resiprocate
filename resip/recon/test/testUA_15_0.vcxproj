@@ -243,39 +243,21 @@
     <None Include="testua_readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="playback_prompt.h" />
+    <ClInclude Include="record_prompt.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaAdapterLib\sipXmediaAdapterLib.vcxproj">
-      <Project>{9501c518-8693-42f3-86a4-39b14983ec6c}</Project>
+      <Project>{0e229e54-9234-44dc-8b74-8c6ba553d3c5}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\contrib\libspeex\win32\VS2003\libspeexdsp\libspeexdsp.vcxproj">
       <Project>{03207781-0d1c-4db3-a71d-45c608f28dbd}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\contrib\libspeex\win32\VS2003\libspeex\libspeex.vcxproj">
       <Project>{e972c52f-9e85-4d65-b19c-031e511e9db4}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\sipXmediaLib.vcxproj">
       <Project>{0ec8287a-481e-45dc-8f95-bad940ae1038}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgilbc\plgilbc.vcxproj">
-      <Project>{6442c7de-e500-4ba2-b821-98092f1edcaf}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgl16\plgl16.vcxproj">
-      <Project>{82a7c86a-5f71-47c3-a74d-54c48c6cd5ee}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgpcmapcmu\plgpcmapcmu.vcxproj">
-      <Project>{a9c94d26-c90d-4860-8195-56929e893757}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgspeex\plgspeex.vcxproj">
-      <Project>{4f7fda11-42a4-4556-a631-15aa785cd1c1}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\sipXtapi\sipXmediaLib\src\mp\codecs\plgtones\plgtones.vcxproj">
-      <Project>{f3bca14e-f24d-4570-833e-8c20c4c393f7}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXportLib\sipXportLib.vcxproj">
       <Project>{14631055-9d3f-47e5-b6a7-16bfc0cc8091}</Project>
@@ -283,49 +265,33 @@
     <ProjectReference Include="..\..\..\..\sipXtapi\sipXsdpLib\sipXsdpLib.vcxproj">
       <Project>{e1d81ea9-4ac3-4cf5-b600-090fd822b1f6}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\contrib\pcre\pcre_14_0.vcxproj">
+    <ProjectReference Include="..\..\..\contrib\pcre\pcre_15_0.vcxproj">
       <Project>{b933f895-8efb-4fdd-a46d-09b8c00d1d26}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\contrib\srtp\srtp_14_0.vcxproj">
+    <ProjectReference Include="..\..\..\contrib\srtp\srtp_15_0.vcxproj">
       <Project>{eef031cb-fed8-451e-a471-91ec8d4f6750}</Project>
-      <Private>true</Private>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\reflow\reflow_14_0.vcxproj">
+    <ProjectReference Include="..\..\..\reflow\reflow_15_0.vcxproj">
       <Project>{d2ab531b-86ac-43dd-a330-9809b4f1bb53}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\reTurn\client\reTurnClient_14_0.vcxproj">
+    <ProjectReference Include="..\..\..\reTurn\client\reTurnClient_15_0.vcxproj">
       <Project>{67b5906c-5c9d-4d09-ac7e-af71d72175f8}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\rutil\dns\ares\ares_12_0.vcxproj">
+    <ProjectReference Include="..\..\..\rutil\dns\ares\ares_15_0.vcxproj">
       <Project>{ce7cf5e0-cad1-49d6-95d1-143ded7b226e}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\rutil\rutil_14_0.vcxproj">
+    <ProjectReference Include="..\..\..\rutil\rutil_15_0.vcxproj">
       <Project>{3d0e5ceb-93dc-4fdb-918b-d08fa369e106}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\dum\dum_14_0.vcxproj">
+    <ProjectReference Include="..\..\dum\dum_15_0.vcxproj">
       <Project>{31b0654f-e08e-405f-909f-80f86cb14b9d}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\stack\resiprocate_14_0.vcxproj">
+    <ProjectReference Include="..\..\stack\resiprocate_15_0.vcxproj">
       <Project>{2a8be839-6466-4001-b224-8f1c3168d04a}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\recon_14_0.vcxproj">
+    <ProjectReference Include="..\recon_15_0.vcxproj">
       <Project>{16cd976a-5d3b-4329-88ba-a32560cdfcc7}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="playback_prompt.h" />
-    <ClInclude Include="record_prompt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
