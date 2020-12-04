@@ -1,6 +1,8 @@
 # This file is only looked at when a checked-out SVN
 # repository is used as the source for a git repo.
 
+doc/
+
 *.o
 *.lo
 *.la
@@ -41,8 +43,21 @@ obj.gopt.*
 obj.prof.*
 bin.prof.*
 
-Debug/
-Release/
+# auto generated
+contrib/srtp/crypto/include/config.h
+
+# extra contrib libraries
+contrib/boost/
+contrib/openssl/
+
+# build directories
+contrib/pcre/Win32/
+reTurn/client/Win32/
+resip/dum/Win32/
+resip/recon/test/sipXtapilog.txt
+resip/stack/Win32/
+rutil/Win32/
+rutil/dns/ares/Win32/
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,c++
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,c++
