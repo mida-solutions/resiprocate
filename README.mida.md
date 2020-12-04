@@ -1,10 +1,12 @@
 # Guida alla compilazione di recon
 
 Autore: Simone Gaiarin
-Data: 18/9/2020
-Versione di Visual Studio: 2019
+Creato: 18/09/2020
+Aggiornato: 04/12/2020
 
-Pagine web di riferimento (seppur molti passi sono obsoleti):
+Versione di Visual Studio: 2019 (16.8.1) [PlatformToolSer: v142]
+
+Pagine web di riferimento (seppur molti passi siano obsoleti):
 - https://www.resiprocate.org/Recon_Overview
 - https://www.resiprocate.org/Building_recon
 - https://www.resiprocate.org/Using_testUA
@@ -24,19 +26,20 @@ git clone --branch resiprocate-1.12_mida-fix https://github.com/mida-solutions/r
 git clone --branch resiprocate-1.12_mida-fix https://github.com/mida-solutions/sipXtapi-svn-mirror.git sipXtapi
 ```
 
+- Installare le dipendenze come spiegato nella [sezione](#installare-le-dipendenze) più in basso
 - VS2019
   - Aprire `resiprocate_root\resiprocate\resip\recon\recon_1_15.sln`
-  - Selezionare build type Release dal menu a tendina
-  - Compilare il progetto `libSRTP`
+  - Selezionare build type `SSL-Release` o `SSL-Debug` dal menu a tendina
+  - Compilare il progetto `libSRTP` (importante compilarlo per primo!)
   - Compilare il progetto `recon`
-  - [opzionale] Compilare il progetto `testUA`
+  - Compilare il progetto `testUA` (compila in automatico altre dipendenze che saranno poi necessare come `rutil`)
 - VS successivo a 2019
   - Aprire `resiprocate_root\resiprocate\resip\recon\recon_1_15.sln`
   - Acconsentire al retarget dei progetti
   - Tasto destro sulla solution > Retarget solution
   - Seguire gli stessi passi riportati sopra per VS2019
 
-Vedere la sezione "Testare la libreria con testUA"
+Vedere la sezione [Testare la libreria con testUA](#testare-la-libreria-con-testua)
 
 ## Compilazione da zero
 
@@ -46,18 +49,16 @@ Seguire in ordine tutti i passi riportati nelle seguenti sezioni. I passi si rif
 
 - Creare una cartella `resiprocate_root`
 - Clonare https://github.com/resiprocate/resiprocate nella cartella `resiprocate_root\resiprocate`
-- Fare checkout del tag (o branch sono allineati) 'resiprocate-1.12'
+
+  Fare checkout del tag (o branch sono allineati) `resiprocate-1.12`
 - Clonare https://github.com/sipXtapi/sipXtapi-svn-mirror.git nella cartella `resiprocate_root\sipXtapi`
-- Fare checkout del commit 652d8fcb8fff9228592cdf8917d513353250c6d3 (master al 18/9/2020)
-- Scaricare `Win32 OpenSSL v1.1.1h exe` da https://slproweb.com/products/Win32OpenSSL.html e installarlo in `\resiprocate_root\resiprocate\contrib\openssl` (occhio che non crei sottocartelle). Selezionare di installare le dll nella sottocartella `bin`.
-- Scaricare `boost_1_74_0.zip` (o più nuovo) da https://www.boost.org/users/download/ e estrarlo in `\resiprocate_root\resiprocate\contrib\boost` (occhio che non crei sottocartelle, rinominando opportunamente la cartella estratta)
+- Fare checkout del commit `652d8fcb8fff9228592cdf8917d513353250c6d3` (master al 18/9/2020)
 
 ### Stato dei repository di sipXtapi (18/9/2020)
 
 Ci sono tre repository tutti de-sincronizzati tra loro:
 
 - https://sipxsvn.sipez.com/rep/sipX/ ad oggi è il più aggiornato
-
 - https://github.com/sipXtapi/sipXtapi-svn-mirror dovrebbe tracciare il repo svn ma in pratica è indietro rispetto al repo svn
 - https://github.com/sipXtapi/sipXtapi boh! questo è l'unico che contiene dei tag. La versione di sipXtapi in debian stable è `3.3.0~test17` mentre in debian testing è `3.3.0~test18`. Quest'ultima è usata anche in altre distro, vedere https://repology.org/project/sipxtapi/versions.
 
@@ -71,6 +72,11 @@ Release/
 ```
 
 e scaricare da gitignore.io i template per VS e C++
+
+## Installare le dipendenze
+
+- Scaricare `Win32 OpenSSL v1.1.1h exe` da https://slproweb.com/products/Win32OpenSSL.html e installarlo in `\resiprocate_root\resiprocate\contrib\openssl` (occhio che non crei sottocartelle). Selezionare di installare le dll nella sottocartella `bin`.
+- Scaricare `boost_1_74_0.zip` (o più nuovo) da https://www.boost.org/users/download/ e estrarlo in `\resiprocate_root\resiprocate\contrib\boost` (occhio che non crei sottocartelle, rinominando opportunamente la cartella estratta)
 
 ## Configurare i progetti di Visual Studio
 
@@ -137,8 +143,7 @@ e scaricare da gitignore.io i template per VS e C++
   - `..\..\..\contrib\pcre` 
     - aggiungi solo se mancante
     - nota che è un livello in più rispetto al path usato nel progetto recon
-- [IMPORTANTE] I reference di testUA sono sbagliati e puntano a progetti vecchi, quindi vanno aggiornati. Dalla sezione `References` del progetto `testUA`, rimuovere tutte le reference e dopo aggiungere tutti i seguenti progetti come reference:
-  
+- **IMPORTANTE** I reference di testUA sono sbagliati e puntano a progetti vecchi, quindi vanno aggiornati. Dalla sezione `References` del progetto `testUA`, rimuovere tutte le reference e dopo aggiungere tutti i seguenti progetti come reference:
   - ares
   - dum
   - libspeex
@@ -176,11 +181,11 @@ e scaricare da gitignore.io i template per VS e C++
 
 ### Codec in ordine di utilità
 
-plgpcmapcmu, plgg729, plgg722, plgopus!, plgaac, plgamr, plgamrwb
+plgpcmapcmu, plgg729, plgg722, plgopus, plgaac, plgamr, plgamrwb
 
 ### plgilbc
 
-??
+Compila con `unresolved symbols`, il codec `codec_ilbc.dll` andrà fornito
 
 ### plgl16
 
@@ -192,12 +197,14 @@ Dovrebbe compilare
 
 ### plgspeex
 
-??
+Sostituire `<bits_extensions.h>` con `"bits_extensions.h"` in `sipXmediaLib/src/mp/codecs/plgspeex/PlgSpeex.c`
+
+Compila con `unresolved symbols`, il codec `codec_speex.dll` andrà fornito
 
 ## Testare la libreria con testUA
 
 - Tasto destro sul progetto `testUA` > Properties > Debugging > Command Arguments e settare a:
-  `-a  192.168.2.195 -u sip:9212@192.168.0.21 -p PASSWORD -aa`
+  `-a  MIOIP -u sip:9212@192.168.0.21 -p PASSWORD -aa`
   - -a specificare l'IP del PC locale
   - sip:9212 è l'utente SIP con cui vogliamo connetterci
   - 102.168.0.21 è l'indirizzo del server SIP
@@ -209,9 +216,17 @@ Dovrebbe compilare
 Leggere https://www.resiprocate.org/Using_testUA per capire come funziona. Lanciare testUA e poi eseguire i seguenti comandi:
 
 - `i` mostra info
-- `crp 1 9209` Fa una chiamata al numero 9209crp 
+- `crp 1 9209` Fa una chiamata al numero 9209
 
 ## Troubleshooting
+
+### Errori indefiniti o incomprensibili di Visual Studio
+
+Provare le seguenti cose in diverse combinazioni
+
+- Rimuovere la cartella `.vs` e riavviare Visual Studio
+- Rimuovere la cartella `out` con i risultati della compilazione
+- Chiudere tutte le finestre di Visual Studio e riavviarlo
 
 ### Errore MSB4211 quando si compila sipXmediaLib
 
