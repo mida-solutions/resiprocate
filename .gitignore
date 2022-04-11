@@ -46,3 +46,5 @@ bin.prof.*
 **/[Ww]in32
 **/x64
 *.vcxproj.user
+contrib/boost/
+contrib/opensslx64/
