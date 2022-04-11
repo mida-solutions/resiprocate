@@ -151,7 +151,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <AdditionalIncludeDirectories>$(ProjectDir)/../../;$(ProjectDir)/../../../sipXtapi/sipXMediaAdapterLib/sipXmediaMediaProcessing/include;$(ProjectDir)/../../../sipXtapi/sipXMediaAdapterLib/interface;$(ProjectDir)/../../../sipXtapi/sipXPortLib/include;$(ProjectDir)/../../../sipXtapi/sipXtackLib/include;$(ProjectDir)/../../../sipXtapi/sipXsdpLib/include;$(ProjectDir)/../../../sipXtapi/sipXMediaLib/include;$(ProjectDir)/../../../sipXtapi/sipXcallLib/include;$(ProjectDir)/../../reTurn;$(ProjectDir)/../../contrib/pcre;$(ProjectDir)/../../contrib/asio;$(ProjectDir)/../../contrib/opensslx64/include;$(ProjectDir)/../../contrib/srtp/include;$(ProjectDir)/../../contrib/srtp/crypto/include;$(ProjectDir)/../../reflow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_SIPXTAPI;BOOST_ASIO_HAS_STD_CHRONO;SIPX_TONES_INBAND;WIN32;_WIN32_WINNT=0x0501;NDEBUG;USE_IPV6;USE_ARES;DEFAULT_BRIDGE_MAX_IN_OUTPUTS=10;BOOST_ALL_NO_LIB;USE_SSL;_CRT_SECURE_NO_WARNINGS;ASIO_ENABLE_CANCELIO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_SIPXTAPI;BOOST_ASIO_HAS_STD_CHRONO;SIPX_NO_RECORD;WIN32;_WIN32_WINNT=0x0501;NDEBUG;USE_IPV6;USE_ARES;DEFAULT_BRIDGE_MAX_IN_OUTPUTS=10;BOOST_ALL_NO_LIB;USE_SSL;_CRT_SECURE_NO_WARNINGS;ASIO_ENABLE_CANCELIO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>
       </StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
