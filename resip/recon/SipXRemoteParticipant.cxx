@@ -506,6 +506,15 @@ SipXRemoteParticipant::answerMediaLine(SdpContents::Session::Medium& mediaSessio
       
       if(valid)
       {
+         SdpContents::Session::Codec* codecAudio = new SdpContents::Session::Codec();
+         InfoLog(<< "mida codec cleaning...");
+         mediaSessionCaps.findFirstMatchingCodecs(medium, codecAudio);
+         SdpContents::Session::Codec codecDtmf = medium.findTelephoneEventPayloadCodec();
+         medium.clearCodecs();
+         medium.addCodec(*codecAudio);
+         medium.addCodec(codecDtmf);
+         InfoLog(<< "mida codec cleaned");
+
          // copy ptime attribute from session caps (if exists)
          if(mediaSessionCaps.exists("ptime"))
          {
