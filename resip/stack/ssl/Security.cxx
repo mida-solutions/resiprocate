@@ -398,7 +398,8 @@ Security::createDomainCtx(const SSL_METHOD* method, const Data& domain, const Da
 
    updateDomainCtx(ctx, domain, certificateFilename, privateKeyFilename, privateKeyPassPhrase);
 
-   SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_CLIENT_ONCE, verifyCallback);
+   //SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_CLIENT_ONCE, verifyCallback);
+   SSL_CTX_set_verify(ctx, SSL_VERIFY_NONE, verifyCallback);
    SSL_CTX_set_cipher_list(ctx, mCipherList.cipherList().c_str());
    setDHParams(ctx);
    SSL_CTX_set_options(ctx, BaseSecurity::OpenSSLCTXSetOptions);
