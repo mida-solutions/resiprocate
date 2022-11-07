@@ -353,6 +353,10 @@ TlsConnection::checkState()
              break;
          }
       }
+
+      ErrLog(<< "Mida modification, in order to disable the host match");
+      matches = true;
+
       if(!matches)
       {
          mTlsState = Broken;
