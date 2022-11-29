@@ -4,6 +4,7 @@
   #include "config.h"
 #endif
 
+//#include "rutil/ResipAssert.h"
 
 #ifdef USE_SSL
 #include "resip/stack/ssl/WinSecurity.hxx"
@@ -15,12 +16,13 @@
 #include <openssl/pkcs7.h>
 #include <openssl/ossl_typ.h>
 #include <openssl/x509.h>
-#include <openssl/x509v3.h>
+//#include <openssl/x509v3.h>
 #include <openssl/ssl.h>
 #include <openssl/pkcs12.h>
 
 #include <Wincrypt.h>
 #include "rutil/Logger.hxx"
+
 
 using namespace resip;
 using namespace std;
