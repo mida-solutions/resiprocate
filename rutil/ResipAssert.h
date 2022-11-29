@@ -36,11 +36,14 @@
 // assertion failures logged to the Windows event logger
 //#define LOG_EVENT_AND_ASSERT
 
+#define LOG_EVENT_AND_ASSERT 1
+
 #if defined(WIN32) && defined(LOG_EVENT_AND_ASSERT)
 
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
+#include <stdio.h>
 #include <windows.h>
 #include <Winreg.h>
 #include <winnt.h>
@@ -73,8 +76,8 @@
             _sntprintf_s(assertInfo, 1024, _TRUNCATE, _T("\r\nAssert: %s"), _T(#x));    \
             ReportEvent(eventLogHandle, EVENTLOG_ERROR_TYPE, 0, 0, NULL, 4, 0, lines, NULL); \
             DeregisterEventSource(eventLogHandle);                                      \
-        }                                                                      \
-    }                                                                          \
+        }                                                                        \
+    }                                                                            \
 }
 
 #define resip_assert(x)                                                        \
