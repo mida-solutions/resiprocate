@@ -444,7 +444,7 @@ SipXConversationManager::buildSessionCapabilities(const resip::Data& ipaddress,
                // 20 ms of speech per frame (note G711 has 10ms samples, so this is 2 samples per frame)
                // Note:  There are known problems with SDP and the ptime attribute.  For now we will choose an
                // appropriate ptime from the first codec
-               medium.addAttribute("ptime", Data(sdpcodec->getPacketLength() / 1000));  
+               //medium.addAttribute("ptime", Data(sdpcodec->getPacketLength() / 1000));  
             }
          }
       }
