@@ -315,14 +315,7 @@ SipXRemoteParticipant::buildSdpOffer(bool holdSdp, SdpContents& offer)
    }
    else
    {
-      if(isRemoteHold())
-      {
-         audioMedium->addAttribute("recvonly");
-      }
-      else
-      {
-         audioMedium->addAttribute("sendrecv");
-      }
+      audioMedium->addAttribute("sendrecv");
    }
    setProposedSdp(offer);
 }
