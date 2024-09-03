@@ -1127,8 +1127,8 @@ SipXRemoteParticipant::adjustRTPStreams(bool sendingOffer)
       mediaDirection == sdpcontainer::SdpMediaLine::DIRECTION_TYPE_RECVONLY)
             && localCodecs)
    {
-      if(!getMediaInterface()->getInterface()->isReceivingRtpAudio(getSipXDialogSet().getMediaConnectionId()))
-      {
+      //if(!getMediaInterface()->getInterface()->isReceivingRtpAudio(getSipXDialogSet().getMediaConnectionId()))
+      //{
          // !SLG! - we could make this better, no need to recalculate this every time
          // We are always willing to receive any of our locally supported codecs
          int numCodecs=0;
@@ -1155,7 +1155,7 @@ SipXRemoteParticipant::adjustRTPStreams(bool sendingOffer)
             delete codecs[i];
          }
          delete [] codecs;
-      }
+      //}
       DebugLog(<< "adjustRTPStreams: handle=" << mHandle << ", receiving...");
    }
    else
